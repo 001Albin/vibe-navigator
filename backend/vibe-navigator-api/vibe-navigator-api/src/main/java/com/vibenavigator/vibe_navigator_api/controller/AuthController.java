@@ -1,6 +1,7 @@
 package com.vibenavigator.vibe_navigator_api.controller;
 import com.vibenavigator.vibe_navigator_api.dto.LoginRequest;
 import com.vibenavigator.vibe_navigator_api.dto.SignUpRequest;
+import com.vibenavigator.vibe_navigator_api.dto.AuthResponse;
 import com.vibenavigator.vibe_navigator_api.entity.User;
 import com.vibenavigator.vibe_navigator_api.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
-        // Logic to authenticate and return a JWT will go here
-        return ResponseEntity.ok("User logged in successfully!");
+        String jwt = authService.loginUser(loginRequest);
+        return ResponseEntity.ok(new AuthResponse(jwt));
     }
 }
