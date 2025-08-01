@@ -7,6 +7,12 @@ import com.vibenavigator.vibe_navigator_api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import com.vibenavigator.vibe_navigator_api.dto.LoginRequest;
+import com.vibenavigator.vibe_navigator_api.security.JwtTokenProvider;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @Service
 public class AuthService {
@@ -15,6 +21,12 @@ public class AuthService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private JwtTokenProvider tokenProvider;
 
     public User registerUser(SignUpRequest signUpRequest) {
         // Optional: Check if user already exists
@@ -33,5 +45,18 @@ public class AuthService {
 
         // Save the user to the database and return the saved entity
         return userRepository.save(user);
+    }
+
+    public String loginUser(LoginRequest loginRequest) {
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        loginRequest.getEmail(),
+                        loginRequest.getPassword()
+                )
+        );
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        return tokenProvider.generateToken(authentication);
     }
 }
