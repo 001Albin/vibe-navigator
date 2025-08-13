@@ -17,13 +17,14 @@ public class ProfileController {
 
     @GetMapping
     public ResponseEntity<ProfileResponse> getCurrentUserProfile(Authentication authentication) {
-        // ... existing code ...
+
         User currentUser = profileService.getCurrentUser(authentication.getName());
 
         ProfileResponse profileResponse = new ProfileResponse();
         profileResponse.setId(currentUser.getId());
         profileResponse.setEmail(currentUser.getEmail());
         profileResponse.setUsername(currentUser.getUsername());
+        profileResponse.setLanguages(currentUser.getLanguages());
 
         return ResponseEntity.ok(profileResponse);
     }
@@ -37,6 +38,7 @@ public class ProfileController {
         profileResponse.setId(updatedUser.getId());
         profileResponse.setEmail(updatedUser.getEmail());
         profileResponse.setUsername(updatedUser.getUsername());
+        profileResponse.setLanguages(updatedUser.getLanguages());
 
         return ResponseEntity.ok(profileResponse);
     }
