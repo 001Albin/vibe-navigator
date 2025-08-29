@@ -28,6 +28,9 @@ public class ProfileService {
             }
             currentUser.setUsername(profileDetails.getUsername());
         }
+        if(profileDetails.getLanguages()!=null){
+            currentUser.setLanguages(profileDetails.getLanguages());
+        }
         return userRepository.save(currentUser);
     }
 
