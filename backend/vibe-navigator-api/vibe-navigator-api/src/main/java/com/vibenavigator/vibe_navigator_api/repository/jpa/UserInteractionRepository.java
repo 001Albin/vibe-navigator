@@ -1,4 +1,4 @@
-package com.vibenavigator.vibe_navigator_api.repository;
+package com.vibenavigator.vibe_navigator_api.repository.jpa;
 import com.vibenavigator.vibe_navigator_api.entity.UserInteraction;
 import org.springframework.data.jpa.repository.JpaRepository;
 
