@@ -3,7 +3,7 @@ package com.vibenavigator.vibe_navigator_api.service;
 import com.vibenavigator.vibe_navigator_api.dto.SignUpRequest;
 import com.vibenavigator.vibe_navigator_api.entity.AuthProvider;
 import com.vibenavigator.vibe_navigator_api.entity.User;
-import com.vibenavigator.vibe_navigator_api.repository.UserRepository;
+import com.vibenavigator.vibe_navigator_api.repository.jpa.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

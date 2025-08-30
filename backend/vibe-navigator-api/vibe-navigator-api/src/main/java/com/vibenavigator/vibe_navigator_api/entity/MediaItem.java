@@ -10,11 +10,13 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "media_items")
+
 public class MediaItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
 
     @Column(name = "external_id", nullable = false)
     private String externalId;

@@ -2,7 +2,7 @@
 package com.vibenavigator.vibe_navigator_api.security;
 
 import com.vibenavigator.vibe_navigator_api.entity.User;
-import com.vibenavigator.vibe_navigator_api.repository.UserRepository;
+import com.vibenavigator.vibe_navigator_api.repository.jpa.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

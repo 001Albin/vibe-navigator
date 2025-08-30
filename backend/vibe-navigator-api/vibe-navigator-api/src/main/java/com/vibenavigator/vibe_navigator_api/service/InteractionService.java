@@ -6,8 +6,8 @@ import com.vibenavigator.vibe_navigator_api.entity.MediaItem;
 import com.vibenavigator.vibe_navigator_api.entity.User;
 import com.vibenavigator.vibe_navigator_api.entity.UserInteraction;
 import com.vibenavigator.vibe_navigator_api.kafka.KafkaProducerService; // Import the new service
-import com.vibenavigator.vibe_navigator_api.repository.MediaItemRepository;
-import com.vibenavigator.vibe_navigator_api.repository.UserInteractionRepository;
+import com.vibenavigator.vibe_navigator_api.repository.jpa.MediaItemRepository;
+import com.vibenavigator.vibe_navigator_api.repository.jpa.UserInteractionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
